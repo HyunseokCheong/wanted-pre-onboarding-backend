@@ -11,6 +11,6 @@ public class HealthController {
     @GetMapping("/health")
     public String health() {
         LocalDateTime localDateTime = LocalDateTime.now();
-        return "V2: 현재 서버시간은 " + localDateTime + "입니다. \n";
+        return "V3: 현재 서버시간은 " + localDateTime + "입니다. \n";
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -54,5 +55,19 @@ public class ArticleService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 게시글입니다.");
         }
         return ResponseEntity.status(HttpStatus.OK).body(article.toResponse());
+    }
+    
+    public ResponseEntity<Object> updateArticle(Long memberId, Long articleId, ArticleRequest request) {
+        Article article = articleRepository.findById(articleId).orElse(null);
+        if (article == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 게시글입니다.");
+        }
+        if (!Objects.equals(memberId, article.getMember().getId())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("작성자만 수정할 수 있습니다.");
+        }
+        
+        article.update(request.title(), request.content());
+        articleRepository.save(article);
+        return ResponseEntity.status(HttpStatus.OK).body("게시글이 수정되었습니다.");
     }
 }

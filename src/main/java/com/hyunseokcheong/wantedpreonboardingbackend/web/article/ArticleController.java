@@ -28,4 +28,9 @@ public class ArticleController {
     public ResponseEntity<Object> findArticleById(@PathVariable Long articleId) {
         return articleService.findById(articleId);
     }
+    
+    @PutMapping("/{articleId}")
+    public ResponseEntity<Object> updateArticle(@PathVariable Long articleId, @RequestBody ArticleRequest request) {
+        return articleService.updateArticle(SecurityUtil.getCurrentMemberId(), articleId, request);
+    }
 }

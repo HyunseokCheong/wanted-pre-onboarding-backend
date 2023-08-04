@@ -47,4 +47,12 @@ public class ArticleService {
         
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+    
+    public ResponseEntity<Object> findById(Long articleId) {
+        Article article = articleRepository.findById(articleId).orElse(null);
+        if (article == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 게시글입니다.");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(article.toResponse());
+    }
 }

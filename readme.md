@@ -10,8 +10,8 @@
 - [x] 과제 3. 새로운 게시글을 생성하는 엔드포인트 `feat: add article create endpoint`
 - [x] 과제 4. 게시글 목록을 조회하는 엔드포인트 `feat: add find all article endpoint`
     - [x] 반드시 Pagination 기능을 구현
-- [ ] 과제 5. 특정 게시글을 조회하는 엔드포인트
-    - [ ] 게시글의 ID를 받아 해당 게시글을 조회
+- [x] 과제 5. 특정 게시글을 조회하는 엔드포인트 `feat: add find article endpoint`
+    - [x] 게시글의 ID를 받아 해당 게시글을 조회
 - [ ] 과제 6. 특정 게시글을 수정하는 엔드포인트
     - [ ] 게시글의 ID와 수정 내용을 받아 해당 게시글을 수정
     - [ ] 게시글을 수정할 수 있는 사용자는 게시글 작성자만 가능

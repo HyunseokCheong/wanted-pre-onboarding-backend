@@ -23,4 +23,9 @@ public class ArticleController {
     public ResponseEntity<Object> findAllArticles(Pageable pageable) {
         return articleService.findAllArticles(pageable);
     }
+    
+    @GetMapping("/{articleId}")
+    public ResponseEntity<Object> findArticleById(@PathVariable Long articleId) {
+        return articleService.findById(articleId);
+    }
 }

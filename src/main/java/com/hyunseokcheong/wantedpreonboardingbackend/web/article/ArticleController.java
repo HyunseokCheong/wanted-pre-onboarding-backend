@@ -3,6 +3,7 @@ package com.hyunseokcheong.wantedpreonboardingbackend.web.article;
 import com.hyunseokcheong.wantedpreonboardingbackend.domain.article.ArticleService;
 import com.hyunseokcheong.wantedpreonboardingbackend.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,5 +17,10 @@ public class ArticleController {
     @PostMapping
     public ResponseEntity<Object> createArticle(@RequestBody ArticleRequest request) {
         return articleService.createArticle(SecurityUtil.getCurrentMemberId(), request);
+    }
+    
+    @GetMapping
+    public ResponseEntity<Object> findAllArticles(Pageable pageable) {
+        return articleService.findAllArticles(pageable);
     }
 }

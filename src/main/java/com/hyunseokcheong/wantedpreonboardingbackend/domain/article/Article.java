@@ -1,6 +1,8 @@
 package com.hyunseokcheong.wantedpreonboardingbackend.domain.article;
 
 import com.hyunseokcheong.wantedpreonboardingbackend.domain.member.Member;
+import com.hyunseokcheong.wantedpreonboardingbackend.util.BaseEntity;
+import com.hyunseokcheong.wantedpreonboardingbackend.web.article.ArticleResponse;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "article")
-public class Article {
+public class Article extends BaseEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,5 +31,15 @@ public class Article {
         this.title = title;
         this.content = content;
         this.member = member;
+    }
+    
+    public ArticleResponse toResponse() {
+        return ArticleResponse.builder()
+                .id(this.id)
+                .title(this.title)
+                .content(this.content)
+                .memberId(this.member.getId())
+                .memberEmail(this.member.getEmail())
+                .build();
     }
 }

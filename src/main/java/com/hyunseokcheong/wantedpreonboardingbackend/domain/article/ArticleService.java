@@ -2,11 +2,14 @@ package com.hyunseokcheong.wantedpreonboardingbackend.domain.article;
 
 import com.hyunseokcheong.wantedpreonboardingbackend.domain.member.Member;
 import com.hyunseokcheong.wantedpreonboardingbackend.domain.member.MemberRepository;
-import com.hyunseokcheong.wantedpreonboardingbackend.web.article.ArticleRequest;
+import com.hyunseokcheong.wantedpreonboardingbackend.web.article.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -30,5 +33,18 @@ public class ArticleService {
         articleRepository.save(article);
         
         return ResponseEntity.status(HttpStatus.CREATED).body("게시글이 등록되었습니다.");
+    }
+    
+    public ResponseEntity<Object> findAllArticles(Pageable pageable) {
+        List<ArticleResponse> list = articleRepository.findAll(pageable)
+                .stream()
+                .map(Article::toResponse)
+                .toList();
+        ArticleListResponse response = ArticleListResponse.builder()
+                .count(list.size())
+                .articles(list)
+                .build();
+        
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }

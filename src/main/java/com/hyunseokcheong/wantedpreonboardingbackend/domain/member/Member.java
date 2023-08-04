@@ -1,6 +1,7 @@
 package com.hyunseokcheong.wantedpreonboardingbackend.domain.member;
 
 import com.hyunseokcheong.wantedpreonboardingbackend.domain.article.Article;
+import com.hyunseokcheong.wantedpreonboardingbackend.util.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "member")
-public class Member {
+public class Member extends BaseEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -16,4 +16,9 @@ public class MemberController {
     public ResponseEntity<Object> signup(@RequestBody MemberRequest request) {
         return memberService.signup(request);
     }
+    
+    @PostMapping("/login")
+    public ResponseEntity<Object> login(@RequestBody MemberRequest request) {
+        return memberService.login(request);
+    }
 }

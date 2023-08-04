@@ -7,3 +7,4 @@
 - [x] 과제 2. 사용자 로그인 엔드포인트 `feat: add user login endpoint`
     - [x] 사용자가 올바른 이메일과 비밀번호를 제공하면, 사용자 인증을 거친 후에 JWT(JSON Web Token)를 생성하여 사용자에게 반환
     - [x] 과제 1과 마찬가지로 로그인 엔드포인트에 이메일과 비밀번호의 유효성 검사기능을 구현
+- [ ] 과제 3. 새로운 게시글을 생성하는 엔드포인트 `feat: add article create endpoint`

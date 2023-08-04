@@ -2,7 +2,6 @@ package com.hyunseokcheong.wantedpreonboardingbackend.domain.article;
 
 import com.hyunseokcheong.wantedpreonboardingbackend.domain.member.Member;
 import com.hyunseokcheong.wantedpreonboardingbackend.util.BaseEntity;
-import com.hyunseokcheong.wantedpreonboardingbackend.web.article.ArticleResponse;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "article")
+@Builder
 public class Article extends BaseEntity {
     
     @Id
@@ -29,22 +29,5 @@ public class Article extends BaseEntity {
     public void update(String title, String content) {
         this.title = title;
         this.content = content;
-    }
-    
-    @Builder
-    public Article(String title, String content, Member member) {
-        this.title = title;
-        this.content = content;
-        this.member = member;
-    }
-    
-    public ArticleResponse toResponse() {
-        return ArticleResponse.builder()
-                .id(this.id)
-                .title(this.title)
-                .content(this.content)
-                .memberId(this.member.getId())
-                .memberEmail(this.member.getEmail())
-                .build();
     }
 }

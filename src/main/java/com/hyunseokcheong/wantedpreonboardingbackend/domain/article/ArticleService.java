@@ -39,7 +39,7 @@ public class ArticleService {
     public ResponseEntity<Object> findAllArticles(Pageable pageable) {
         List<ArticleResponse> list = articleRepository.findAll(pageable)
                 .stream()
-                .map(Article::toResponse)
+                .map(ArticleMapper::toResponse)
                 .toList();
         ArticleListResponse response = ArticleListResponse.builder()
                 .count(list.size())
@@ -54,7 +54,7 @@ public class ArticleService {
         if (article == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 게시글입니다.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(article.toResponse());
+        return ResponseEntity.status(HttpStatus.OK).body(ArticleMapper.toResponse(article));
     }
     
     public ResponseEntity<Object> updateArticle(Long memberId, Long articleId, ArticleRequest request) {

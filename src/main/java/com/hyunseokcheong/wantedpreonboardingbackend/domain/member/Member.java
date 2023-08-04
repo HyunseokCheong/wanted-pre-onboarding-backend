@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "member")
+@Builder
 public class Member extends BaseEntity {
     
     @Id
@@ -32,12 +33,6 @@ public class Member extends BaseEntity {
     
     public enum Authority {
         ROLE_USER, ROLE_ADMIN
-    }
-    
-    @Builder
-    public Member(String email, String password) {
-        this.email = email;
-        this.password = password;
     }
     
     public void addArticle(Article article) {

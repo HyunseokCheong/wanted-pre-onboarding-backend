@@ -33,7 +33,12 @@ jobs:
       with:
         distribution: 'corretto'
         java-version: '17'
-
+    
+    # 
+    - run: touch ./src/main/resources/application.yml
+    - run: echo "${{ secrets.APPLICATION }}" > ./src/main/resources/application.yml
+    - run: cat ./src/main/resources/application.yml
+    
     # (3) Gradle build (Test 제외)
     - name: Run chmod to make gradlew executable
       run: chmod +x ./gradlew

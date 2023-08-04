@@ -33,4 +33,9 @@ public class ArticleController {
     public ResponseEntity<Object> updateArticle(@PathVariable Long articleId, @RequestBody ArticleRequest request) {
         return articleService.updateArticle(SecurityUtil.getCurrentMemberId(), articleId, request);
     }
+    
+    @DeleteMapping("/{articleId}")
+    public ResponseEntity<Object> deleteArticle(@PathVariable Long articleId) {
+        return articleService.deleteArticle(SecurityUtil.getCurrentMemberId(), articleId);
+    }
 }

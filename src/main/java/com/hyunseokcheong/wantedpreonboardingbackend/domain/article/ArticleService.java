@@ -70,4 +70,17 @@ public class ArticleService {
         articleRepository.save(article);
         return ResponseEntity.status(HttpStatus.OK).body("게시글이 수정되었습니다.");
     }
+    
+    public ResponseEntity<Object> deleteArticle(Long memberId, Long articleId) {
+        Article article = articleRepository.findById(articleId).orElse(null);
+        if (article == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 게시글입니다.");
+        }
+        if (!Objects.equals(memberId, article.getMember().getId())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("작성자만 수정할 수 있습니다.");
+        }
+        
+        articleRepository.delete(article);
+        return ResponseEntity.status(HttpStatus.OK).body("게시글이 삭제되었습니다.");
+    }
 }

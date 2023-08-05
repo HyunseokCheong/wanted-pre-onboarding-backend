@@ -36,7 +36,7 @@
 
 ## 구현한 API의 동작을 촬영한 데모 영상 링크
 
-[YouTube]()
+[YouTube](https://youtu.be/MD3x4-HmDXc)
 
 ## 구현 방법 및 이유에 대한 간략한 설명
 
@@ -48,6 +48,10 @@
 
 [Postman Docs](https://documenter.getpostman.com/view/27919070/2s9XxyRDFz)
 
-## 클라우드 환경(AWS, GCP)에 배포 환경을 설계하고 애플리케이션을 배포한 경우 (README.md 파일에 배포된 API 주소와 설계한 AWS 환경 그림으로 첨부)
+## 클라우드 환경 (AWS)에 배포
 
-[Health Check](http://43.201.13.161:8080/health)
+![drawio](drawio.jpg)
+
+- [Health Check](http://43.201.13.161:8080/health)
+- [Postman Docs](https://documenter.getpostman.com/view/27919070/2s9XxyRDFz)
+

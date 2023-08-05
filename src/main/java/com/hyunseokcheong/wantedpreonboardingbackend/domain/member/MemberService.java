@@ -34,6 +34,7 @@ public class MemberService {
         memberRepository.save(Member.builder()
                 .email(email)
                 .password(encodePassword)
+                .authority(Member.Authority.ROLE_USER)
                 .build());
         
         return ResponseEntity.status(HttpStatus.CREATED).body("회원가입이 완료되었습니다.");

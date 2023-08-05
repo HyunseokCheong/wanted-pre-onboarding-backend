@@ -29,7 +29,7 @@ public class Member extends BaseEntity {
     private List<Article> articleList = new ArrayList<>();
     
     @Enumerated(EnumType.STRING)
-    private Authority authority = Authority.ROLE_USER;
+    private Authority authority;
     
     public enum Authority {
         ROLE_USER, ROLE_ADMIN

@@ -1,7 +1,7 @@
 package com.hyunseokcheong.wantedpreonboardingbackend.util;
 
-import com.hyunseokcheong.wantedpreonboardingbackend.web.member.TokenResponse;
 import com.hyunseokcheong.wantedpreonboardingbackend.domain.member.Member;
+import com.hyunseokcheong.wantedpreonboardingbackend.web.member.TokenResponse;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

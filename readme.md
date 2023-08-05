@@ -42,7 +42,7 @@
 
 - Github Actions를 이용한 CICD 구현 후 기능 개발
 - 사용자와 게시글을 일대다 관계로 구현
-- 게시글 수정 및 삭제시 권한 확인을 위해 Spring Security와 jWt Token을 사용
+- 게시글 수정 및 삭제시 권한 확인을 위해 Spring Security와 Jwt Token을 사용
 
 ## API 명세(request/response 포함)
 

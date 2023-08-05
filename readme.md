@@ -2,7 +2,7 @@
 
 ### 지원자: 정현석
 
-### 애플리케이셜 실행 방법
+### 애플리케이션 실행 방법
 
 1. 레포지토리 클론
 2. application.yml 작성 `src/main/resources/application.yml`
@@ -27,7 +27,8 @@
 3. 실행
 
     ```shell
-    ./gradlew bootrun
+   chmod +x ./gradlew
+    ./gradlew bootRun
     ```
 
 ## 데이터베이스 테이블 구조
